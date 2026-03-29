@@ -15,7 +15,7 @@ with col_meses:
     meses_obra = st.number_input("Meses de obra", min_value=1.0, step=1.0, value=1.0)
 
 with col_bdi:
-    bdi = st.number_input("BDI (%)", min_value=0.0, value=1.0, step=1.0, format="%.2f")
+    bdi = st.number_input("BDI (%)", min_value=0.0, value=25.0, step=1.0, format="%.2f")
 bdi_calculo = bdi / 100
 st.markdown("---")
 # --- CARREGAMENTO DE DADOS ---
