@@ -17,6 +17,10 @@ with col_meses:
 with col_bdi:
     bdi = st.number_input("BDI (%)", min_value=0.0, value=25.0, step=1.0, format="%.2f")
 bdi_calculo = bdi / 100
+# ADICIONADO: Cria um espaço reservado na terceira coluna
+with col_espaco:
+    st.write("") # Pula uma linha para alinhar o texto com as caixas de input
+    placeholder_total = st.empty()
 st.markdown("---")
 # --- CARREGAMENTO DE DADOS ---
 @st.cache_data
@@ -178,8 +182,11 @@ valor_total_formatado = f"{soma_valor_total:,.2f}".replace(",", "X").replace("."
 
 # INSERIR APENAS ISTO:
 valor_total_formatado = f"{soma_valor_total:,.2f}".replace(",", "X").replace(".", ",").replace("X", ".")
-st.markdown("---")
-st.subheader(f"Valor Total: R$ {valor_total_formatado}")
+#placeholder_total.subheader(f"Valor Total: R$ {valor_total_formatado}")
+placeholder_total.markdown(
+    f"<h3 style='text-align: center;'>Valor Total:R$ {valor_total_formatado}</h3>", 
+    unsafe_allow_html=True
+)
     
 st.markdown("---")
 
