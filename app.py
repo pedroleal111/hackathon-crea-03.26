@@ -184,7 +184,7 @@ valor_total_formatado = f"{soma_valor_total:,.2f}".replace(",", "X").replace("."
 valor_total_formatado = f"{soma_valor_total:,.2f}".replace(",", "X").replace(".", ",").replace("X", ".")
 #placeholder_total.subheader(f"Valor Total: R$ {valor_total_formatado}")
 placeholder_total.markdown(
-    f"<h3 style='text-align: center;'>Valor Total:R$ {valor_total_formatado}</h3>", 
+    f"<h3 style='text-align: center;'>Valor Total: R$ {valor_total_formatado}</h3>", 
     unsafe_allow_html=True
 )
     
