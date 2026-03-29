@@ -173,6 +173,7 @@ for i in range(numero_de_linhas):
         col5.write("-")
         col6.write("-")
 # --- NOVO: EXIBIR O VALOR TOTAL DA PLANILHA ---
+soma_valor_total = (soma_valor_total/1.25)*(1+float(bdi_calculo))
 valor_total_formatado = f"{soma_valor_total:,.2f}".replace(",", "X").replace(".", ",").replace("X", ".")
 
 # INSERIR APENAS ISTO:
