@@ -9,7 +9,8 @@ st.title("Orçamento de Engenharia")
 # O usuário digita os meses. Mínimo de 1 mês para evitar erro de divisão por zero.
 # A primeira e segunda colunas terão largura 1, e criamos uma terceira vazia com largura 2 
 # para "empurrar" os campos para a esquerda e não ocupar a tela toda
-col_meses, col_bdi, col_espaco = st.columns([1, 1, 2])
+# Criamos uma nova coluna (col_banco) para acomodar o dropdown lado a lado com os outros inputs
+col_meses, col_bdi, col_banco, col_espaco = st.columns([1, 1, 1, 2])
 
 with col_meses:
     meses_obra = st.number_input("Meses de obra", min_value=1.0, step=1.0, value=1.0)
@@ -17,7 +18,12 @@ with col_meses:
 with col_bdi:
     bdi = st.number_input("BDI (%)", min_value=0.0, value=25.0, step=1.0, format="%.2f")
 bdi_calculo = bdi / 100
-# ADICIONADO: Cria um espaço reservado na terceira coluna
+
+# ADICIONADO: Nova coluna com o dropdown (selectbox)
+with col_banco:
+    banco_dados = st.selectbox("Banco de Dados", options=["SINAPI"])
+
+# ADICIONADO: Cria um espaço reservado na quarta coluna
 with col_espaco:
     st.write("") # Pula uma linha para alinhar o texto com as caixas de input
     placeholder_total = st.empty()
