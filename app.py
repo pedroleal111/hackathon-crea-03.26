@@ -7,8 +7,16 @@ st.set_page_config(layout="wide", page_title="Sistema de Orçamento")
 st.title("Orçamento de Engenharia")
 # --- COMANDO 1: CAMPO DIGITÁVEL DE MESES ---
 # O usuário digita os meses. Mínimo de 1 mês para evitar erro de divisão por zero.
-meses_obra = st.number_input("Quantidade de meses de obra", min_value=1, value=1, step=1)
+# A primeira e segunda colunas terão largura 1, e criamos uma terceira vazia com largura 2 
+# para "empurrar" os campos para a esquerda e não ocupar a tela toda
+col_meses, col_bdi, col_espaco = st.columns([1, 1, 2])
 
+with col_meses:
+    meses_obra = st.number_input("Meses de obra", min_value=1.0, step=1.0, value=1.0)
+
+with col_bdi:
+    bdi = st.number_input("BDI (%)", min_value=0.0, value=1.0, step=1.0, format="%.2f")
+bdi_calculo = bdi / 100
 st.markdown("---")
 # --- CARREGAMENTO DE DADOS ---
 @st.cache_data
